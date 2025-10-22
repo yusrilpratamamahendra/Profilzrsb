@@ -5,8 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Profil Yusril Pratama Mahendra</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🎚️ Tombol Mute/Unmute */
+    #mute-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+    #mute-btn:hover {
+      background: #4caf50;
+      color: white;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
+  <!-- 🌿 Musik Latar Belakang -->
+  <audio id="bg-music" autoplay loop>
+    <source src="SmartCity_SmartWaste_Looping_EN.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- 🔇 Tombol Mute / Unmute -->
+  <button id="mute-btn" title="Mute / Unmute">🔊</button>
+
   <div class="page">
     <header class="site-header">
       <img src="logo.png" alt="Zaquin Logo" class="logo show">
@@ -32,12 +63,10 @@
       </div>
 
       <div class="right">
-        <!-- Kolom kiri: video YouTube + slideshow -->
         <div class="media-wrap">
           <div class="video-container show">
-            <!-- 🌟 Embed YouTube -->
             <iframe 
-	      src="https://www.youtube.com/embed/wdYxVntujRc?si=nAwhmcLt4JJIC2df"
+              src="https://www.youtube.com/embed/wdYxVntujRc?si=nAwhmcLt4JJIC2df"
               title="Smart Waste Project"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -61,7 +90,6 @@
           </div>
         </div>
 
-        <!-- Kolom kanan: animasi logo -->
         <div class="logo-scroll">
           <div class="scroll-inner">
             <img src="loop1.png" alt="logo1">
@@ -95,14 +123,12 @@
       </div>
     </main>
 
-    <!-- Tombol CTA -->
     <div class="cta-wrap show">
       <a class="cta" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0">
         Hubungi Saya
       </a>
     </div>
 
-    <!-- Footer -->
     <footer class="site-footer">
       <p class="watermark">Zaquin Resources Sdn. Bhd</p>
       <p class="address">
@@ -113,8 +139,44 @@
     </footer>
   </div>
 
+  <!-- 🎵 Script Musik Latar (otomatis + fade-in + tombol mute) -->
+  <script>
+    const audio = document.getElementById("bg-music");
+    const muteBtn = document.getElementById("mute-btn");
+
+    // Pastikan musik siap diputar
+    window.addEventListener("load", () => {
+      audio.volume = 0;
+      audio.muted = false;
+      const fade = setInterval(() => {
+        if (audio.volume < 1.0) {
+          audio.volume = Math.min(audio.volume + 0.01, 1.0);
+        } else {
+          clearInterval(fade);
+        }
+      }, 200);
+      audio.play().catch(() => {
+        // Jika browser menolak autoplay, tampilkan tombol agar user bisa klik dulu
+        muteBtn.textContent = "▶️";
+      });
+    });
+
+    // Fungsi untuk toggle mute/unmute
+    muteBtn.addEventListener("click", () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        audio.volume = 1.0;
+        muteBtn.textContent = "🔊";
+        audio.play();
+      } else {
+        audio.muted = true;
+        muteBtn.textContent = "🔇";
+      }
+    });
+  </script>
+
+  <!-- 🖼️ Script Slideshow -->
   <script defer>
-    // Efek slideshow otomatis
     let slideIndex = 0;
     const slides = document.querySelectorAll(".slide");
     function showSlides() {
