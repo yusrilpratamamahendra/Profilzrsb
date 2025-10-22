@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profil Yusril Pratama Mahendra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <img src="logo.png" alt="Zaquin Logo" class="logo show">
+    </header>
+
+    <main class="card" role="main" aria-label="Profil Yusril Pratama Mahendra">
+      <div class="left">
+        <img class="avatar" src="profile.jpg" alt="Foto profil Yusril">
+        <h1>Yusril Pratama Mahendra</h1>
+
+        <div class="position-info">
+          <h2 class="role">💼 Business Development</h2>
+          <h3 class="company">🏢 Zaquin Resources Sdn. Bhd</h3>
+        </div>
+
+        <p class="tagline">Innovating Sustainability for a Greener Future.</p>
+
+        <div class="contact">
+          <a class="btn" href="mailto:yusril@zaquin.com.my">✉️ Email</a>
+          <a class="btn" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn" href="https://zaquin.com.my" target="_blank" rel="noopener">🌐 Website</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <!-- Kolom kiri: video YouTube + slideshow -->
+        <div class="media-wrap">
+          <div class="video-container show">
+            <!-- 🌟 Embed YouTube -->
+            <iframe 
+	      src="https://www.youtube.com/embed/wdYxVntujRc?si=nAwhmcLt4JJIC2df"
+              title="Smart Waste Project"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="slideshow-container show">
+            <div class="slide fade"><img src="slide1.jpg" alt="Slide 1"></div>
+            <div class="slide fade"><img src="slide2.jpg" alt="Slide 2"></div>
+            <div class="slide fade"><img src="slide3.jpg" alt="Slide 3"></div>
+            <div class="slide fade"><img src="slide4.jpg" alt="Slide 4"></div>
+            <div class="slide fade"><img src="slide5.jpg" alt="Slide 5"></div>
+            <div class="slide fade"><img src="slide6.jpg" alt="Slide 6"></div>
+            <div class="slide fade"><img src="slide7.jpg" alt="Slide 7"></div>
+            <div class="slide fade"><img src="slide8.jpg" alt="Slide 8"></div>
+            <div class="slide fade"><img src="slide9.jpg" alt="Slide 9"></div>
+            <div class="slide fade"><img src="slide10.jpg" alt="Slide 10"></div>
+            <div class="slide fade"><img src="slide11.jpg" alt="Slide 11"></div>
+            <div class="slide fade"><img src="slide12.jpg" alt="Slide 12"></div>
+          </div>
+        </div>
+
+        <!-- Kolom kanan: animasi logo -->
+        <div class="logo-scroll">
+          <div class="scroll-inner">
+            <img src="loop1.png" alt="logo1">
+            <img src="loop2.png" alt="logo2">
+            <img src="loop3.png" alt="logo3">
+            <img src="loop4.png" alt="logo4">
+            <img src="loop5.png" alt="logo5">
+            <img src="loop6.png" alt="logo6">
+            <img src="loop7.png" alt="logo7">
+            <img src="loop8.png" alt="logo8">
+            <img src="loop9.png" alt="logo9">
+            <img src="loop10.png" alt="logo10">
+            <img src="loop11.png" alt="logo11">
+            <img src="loop12.png" alt="logo12">
+
+            <!-- Duplikasi untuk loop halus -->
+            <img src="loop1.png" alt="logo1-duplicate">
+            <img src="loop2.png" alt="logo2-duplicate">
+            <img src="loop3.png" alt="logo3-duplicate">
+            <img src="loop4.png" alt="logo4-duplicate">
+            <img src="loop5.png" alt="logo5-duplicate">
+            <img src="loop6.png" alt="logo6-duplicate">
+            <img src="loop7.png" alt="logo7-duplicate">
+            <img src="loop8.png" alt="logo8-duplicate">
+            <img src="loop9.png" alt="logo9-duplicate">
+            <img src="loop10.png" alt="logo10-duplicate">
+            <img src="loop11.png" alt="logo11-duplicate">
+            <img src="loop12.png" alt="logo12-duplicate">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tombol CTA -->
+    <div class="cta-wrap show">
+      <a class="cta" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0">
+        Hubungi Saya
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p class="watermark">Zaquin Resources Sdn. Bhd</p>
+      <p class="address">
+        📍 No 2, Jalan Ekoperniagaan 2/2,<br>
+        Taman Ekoperniagaan, 81100, Johor Bahru, Malaysia<br>
+        ☎️ +607 554 9626
+      </p>
+    </footer>
+  </div>
+
+  <script defer>
+    // Efek slideshow otomatis
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+    showSlides();
+  </script>
+</body>
+</html>

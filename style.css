@@ -1,0 +1,256 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #b8e6cc; /* 🌿 Hijau penuh */
+  color: #222;
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  width: 120px;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+/* KARTU PROFIL */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+/* BAGIAN KIRI */
+.left {
+  text-align: center;
+  background: rgba(184, 230, 204, 0.6);
+  padding: 1.5rem;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.left h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.position-info {
+  margin-bottom: 1rem;
+}
+
+.role {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c7a4b;
+  margin-bottom: 0.3rem;
+}
+
+.company {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.tagline {
+  font-style: italic;
+  color: #2c7a4b;
+  margin-bottom: 1.5rem;
+}
+
+.contact {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  background: #2c7a4b;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1f5735;
+}
+
+/* BAGIAN KANAN */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  background-color: #b8e6cc;
+  padding: 1rem;
+}
+
+.media-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* 🔧 Ukuran video sedikit lebih besar agar sejajar dengan logo */
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9; /* agar responsif */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+
+.slideshow-container {
+  width: 85%;
+  max-width: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background: #000;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Slideshow */
+.slide { display: none; width: 100%; }
+.slide img { width: 100%; border-radius: 16px; display: block; }
+
+.fade { animation: fade 2s ease-in-out; }
+@keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+
+.logo-scroll {
+  width: 100px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.scroll-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scrollSeamless 20s linear infinite;
+}
+
+/* Logo style */
+.scroll-inner img {
+  width: 80px;
+  margin: 10px 0;
+  opacity: 0.9;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.scroll-inner img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Animasi bergulir terus-menerus tanpa jeda */
+@keyframes scrollSeamless {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* CTA */
+.cta-wrap { text-align: center; margin: 2rem 0; }
+
+.cta {
+  background: #2c7a4b;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta:hover { background: #1f5735; }
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.address {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.address a {
+  color: #2c7a4b;
+  text-decoration: none;
+}
+
+.address a:hover { text-decoration: underline; }
+
+/* RESPONSIF */
+@media (max-width: 768px) {
+  .card { flex-direction: column; }
+  .left, .right { width: 100%; }
+  .right { flex-direction: column; align-items: center; }
+  .logo-scroll { display: none; }
+}
