@@ -129,14 +129,14 @@ body {
   gap: 1.5rem;
 }
 
-/* 🔧 Ukuran video sedikit lebih besar agar sejajar dengan logo */
+/* 🎬 Video */
 .video-container {
   position: relative;
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
   background: #000;
-  aspect-ratio: 16 / 9; /* agar responsif */
+  aspect-ratio: 16 / 9;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
@@ -147,7 +147,7 @@ body {
   display: block;
 }
 
-
+/* 🖼️ Slideshow */
 .slideshow-container {
   width: 85%;
   max-width: 320px;
@@ -157,20 +157,27 @@ body {
   background: #000;
 }
 
-video {
+.slide {
+  display: none;
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 16px;
 }
 
-/* Slideshow */
-.slide { display: none; width: 100%; }
-.slide img { width: 100%; border-radius: 16px; display: block; }
+.slide img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
 
-.fade { animation: fade 2s ease-in-out; }
-@keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+.fade {
+  animation: fade 2s ease-in-out;
+}
 
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* 🔄 LOGO LOOP (Desktop) */
 .logo-scroll {
   width: 100px;
   height: 400px;
@@ -201,18 +208,17 @@ video {
   opacity: 1;
 }
 
-/* Animasi bergulir terus-menerus tanpa jeda */
+/* Vertikal scroll animasi desktop */
 @keyframes scrollSeamless {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 
 /* CTA */
-.cta-wrap { text-align: center; margin: 2rem 0; }
+.cta-wrap {
+  text-align: center;
+  margin: 2rem 0;
+}
 
 .cta {
   background: #2c7a4b;
@@ -224,7 +230,9 @@ video {
   transition: background 0.3s;
 }
 
-.cta:hover { background: #1f5735; }
+.cta:hover {
+  background: #1f5735;
+}
 
 /* FOOTER */
 .site-footer {
@@ -245,12 +253,56 @@ video {
   text-decoration: none;
 }
 
-.address a:hover { text-decoration: underline; }
+.address a:hover {
+  text-decoration: underline;
+}
 
-/* RESPONSIF */
+/* 📱 RESPONSIF (Mobile) */
 @media (max-width: 768px) {
-  .card { flex-direction: column; }
-  .left, .right { width: 100%; }
-  .right { flex-direction: column; align-items: center; }
-  .logo-scroll { display: none; }
+  .card {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ✅ Logo-scroll tetap tampil di HP */
+  .logo-scroll {
+    display: flex !important;
+    width: 90%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .scroll-inner {
+    display: flex;
+    flex-direction: row;
+    animation: scrollHorizontal 25s linear infinite;
+  }
+
+  .scroll-inner img {
+    width: 60px;
+    height: auto;
+    margin: 0 10px;
+  }
+
+  /* 🔄 Animasi horizontal agar cocok di layar kecil */
+  @keyframes scrollHorizontal {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
