@@ -7,13 +7,29 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* 🌿 Corporate Volume Button (Zaquin Style) */
+    /* RESET */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #b8e6cc; /* 🌿 Latar belakang hijau lembut */
+      color: #003d2b;
+    }
+
+    .fade-in { opacity: 0; animation: fadeIn 1.6s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* 🌿 Tombol Volume Corporate */
     #mute-btn {
       position: fixed;
       top: 20px;
       right: 20px;
       background: linear-gradient(145deg, #fdfdfd, #f7f7f7);
-      border: 2px solid #d4af37; /* Emas lembut */
+      border: 2px solid #d4af37;
       border-radius: 50%;
       width: 58px;
       height: 58px;
@@ -25,39 +41,62 @@
       transition: all 0.3s ease;
       z-index: 9999;
     }
-    #mute-btn svg {
-      width: 30px;
-      height: 30px;
-      fill: #005f3a; /* Hijau corporate */
-      transition: fill 0.3s ease;
-    }
-    #mute-btn:hover {
-      background: linear-gradient(135deg, #007a5a, #d4af37);
-      transform: scale(1.08);
-    }
-    #mute-btn:hover svg {
-      fill: white;
+    #mute-btn svg { width: 30px; height: 30px; fill: #005f3a; transition: fill 0.3s ease; }
+    #mute-btn:hover { background: linear-gradient(135deg, #007a5a, #d4af37); transform: scale(1.08); }
+    #mute-btn:hover svg { fill: white; }
+
+    /* CTA - jarak lebih natural */
+    .cta-wrap {
+      text-align: center;
+      margin: 1.5rem 0 1.5rem; /* ✅ sedikit lebih renggang dari sebelumnya */
     }
 
-    /* Efek Fade Halaman */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    /* Trusted by - jarak halus */
+    .trusted-by {
+      text-align: center;
+      margin-top: 20px; /* ✅ sedikit jarak dari CTA */
     }
 
-    /* Responsif tombol agar tetap proporsional */
-    @media (max-width: 768px) {
-      #mute-btn {
-        width: 50px;
-        height: 50px;
-      }
-      #mute-btn svg {
-        width: 24px;
-        height: 24px;
-      }
+    .trusted-by h3 {
+      text-decoration: none;
+      font-weight: 600;
+      color: #004d32;
+      font-size: 1.3rem;
+    }
+
+    /* 🔄 Logo Loop (warna asli, 1 baris) */
+    .logo-scroll {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      background: transparent;
+      padding: 20px 0;
+      margin-top: 10px;
+    }
+
+    .scroll-inner {
+      display: inline-flex;
+      align-items: center;
+      animation: scrollLeft 40s linear infinite;
+    }
+
+    .scroll-inner img {
+      height: 60px;
+      margin: 0 40px;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: none; /* ✅ warna logo tetap asli */
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .scroll-inner img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
   </style>
 </head>
@@ -68,9 +107,8 @@
     <source src="SmartCity_SmartWaste_Looping_EN.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🔊 Tombol Volume Corporate Zaquin -->
+  <!-- 🔊 Tombol Volume -->
   <button id="mute-btn" aria-label="Mute / Unmute">
-    <!-- Volume ON (Default) -->
     <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M3 9v6h4l5 5V4L7 9H3z"/>
       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>
@@ -86,72 +124,64 @@
       <div class="left">
         <img class="avatar" src="profile.jpg" alt="Foto profil Yusril">
         <h1>Yusril Pratama Mahendra</h1>
-
         <div class="position-info">
           <h2 class="role">💼 Business Development</h2>
           <h3 class="company">🏢 Zaquin Resources Sdn. Bhd</h3>
         </div>
-
         <p class="tagline">Innovating Sustainability for a Greener Future.</p>
-
         <div class="contact">
           <a class="btn" href="mailto:yusril@zaquin.com.my">✉️ Email</a>
-          <a class="btn" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a class="btn" href="https://zaquin.com.my" target="_blank" rel="noopener">🌐 Website</a>
+          <a class="btn" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0" target="_blank">💬 WhatsApp</a>
+          <a class="btn" href="https://zaquin.com.my" target="_blank">🌐 Website</a>
         </div>
       </div>
 
       <div class="right">
         <div class="media-wrap">
           <div class="video-container show">
-            <iframe 
-              src="https://www.youtube.com/embed/wdYxVntujRc?si=nAwhmcLt4JJIC2df"
+            <iframe src="https://www.youtube.com/embed/wdYxVntujRc?si=nAwhmcLt4JJIC2df"
               title="Smart Waste Project"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+              allowfullscreen></iframe>
           </div>
 
           <div class="slideshow-container show">
             <div class="slide fade"><img src="slide1.jpg" alt="Slide 1"></div>
             <div class="slide fade"><img src="slide2.jpg" alt="Slide 2"></div>
-            <div class="slide fade"><img src="slide3.jpg" alt="Slide 3"></div>
-            <div class="slide fade"><img src="slide4.jpg" alt="Slide 4"></div>
-            <div class="slide fade"><img src="slide5.jpg" alt="Slide 5"></div>
-            <div class="slide fade"><img src="slide6.jpg" alt="Slide 6"></div>
-            <div class="slide fade"><img src="slide7.jpg" alt="Slide 7"></div>
-            <div class="slide fade"><img src="slide8.jpg" alt="Slide 8"></div>
-            <div class="slide fade"><img src="slide9.jpg" alt="Slide 9"></div>
-            <div class="slide fade"><img src="slide10.jpg" alt="Slide 10"></div>
-            <div class="slide fade"><img src="slide11.jpg" alt="Slide 11"></div>
-            <div class="slide fade"><img src="slide12.jpg" alt="Slide 12"></div>
-          </div>
-        </div>
-
-        <div class="logo-scroll">
-          <div class="scroll-inner">
-            <img src="loop1.png" alt="logo1">
-            <img src="loop2.png" alt="logo2">
-            <img src="loop3.png" alt="logo3">
-            <img src="loop4.png" alt="logo4">
-            <img src="loop5.png" alt="logo5">
-            <img src="loop6.png" alt="logo6">
-            <img src="loop7.png" alt="logo7">
-            <img src="loop8.png" alt="logo8">
-            <img src="loop9.png" alt="logo9">
-            <img src="loop10.png" alt="logo10">
-            <img src="loop11.png" alt="logo11">
-            <img src="loop12.png" alt="logo12">
           </div>
         </div>
       </div>
     </main>
 
+    <!-- CTA -->
     <div class="cta-wrap show">
-      <a class="cta" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0">
+      <a class="cta" href="https://api.whatsapp.com/send/?phone=6281310893294&text=Halo+ini+pesan+saya.&type=phone_number&app_absent=0" target="_blank">
         Hubungi Saya
       </a>
+    </div>
+
+    <!-- 🏢 Trusted by -->
+    <div class="trusted-by fade-in">
+      <h3>Trusted by</h3>
+    </div>
+
+    <!-- ✅ Logo Loop (1 baris, warna asli) -->
+    <div class="logo-scroll" aria-hidden="true">
+      <div class="scroll-inner">
+        <img src="loop1.png" alt="logo1">
+        <img src="loop2.png" alt="logo2">
+        <img src="loop3.png" alt="logo3">
+        <img src="loop4.png" alt="logo4">
+        <img src="loop5.png" alt="logo5">
+        <img src="loop6.png" alt="logo6">
+        <img src="loop7.png" alt="logo7">
+        <img src="loop8.png" alt="logo8">
+        <img src="loop9.png" alt="logo9">
+        <img src="loop10.png" alt="logo10">
+        <img src="loop11.png" alt="logo11">
+        <img src="loop12.png" alt="logo12">
+      </div>
     </div>
 
     <footer class="site-footer">
@@ -164,31 +194,24 @@
     </footer>
   </div>
 
-  <!-- 🎶 Script Musik Latar -->
+  <!-- 🎶 Musik -->
   <script>
     const audio = document.getElementById("bg-music");
     const muteBtn = document.getElementById("mute-btn");
     const iconSound = document.getElementById("icon-sound");
 
     function setIcon(muted) {
-      if (muted) {
-        // Ikon mute (Material Design)
+      if (muted)
         iconSound.innerHTML = '<path d="M16.5 12l5.5 5.5-1.5 1.5L15 13.5V19l-5-5H6V10h4l5-5v5.5l5.5-5.5 1.5 1.5L16.5 12z"/>';
-      } else {
-        // Ikon volume on
+      else
         iconSound.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>';
-      }
     }
 
     async function tryPlay() {
-      try {
-        await audio.play();
-      } catch {
-        // Jika autoplay diblokir, aktifkan setelah klik pertama
+      try { await audio.play(); }
+      catch {
         muteBtn.addEventListener("click", async () => {
-          audio.muted = false;
-          await audio.play();
-          setIcon(false);
+          audio.muted = false; await audio.play(); setIcon(false);
         }, { once: true });
       }
     }
@@ -218,7 +241,7 @@
       slides.forEach(slide => slide.style.display = "none");
       slideIndex++;
       if (slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex - 1].style.display = "block";
+      if (slides[slideIndex - 1]) slides[slideIndex - 1].style.display = "block";
       setTimeout(showSlides, 3000);
     }
     showSlides();
